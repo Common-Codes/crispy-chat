@@ -1,4 +1,4 @@
-*Updated: June 8th, 2022*
+*Updated: May 7th, 2023*
 
 # Privacy Policy
 

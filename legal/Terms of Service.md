@@ -1,4 +1,4 @@
-*Updated: September 2nd, 2022*
+*Updated: May 7th, 2023*
 
 # Terms of Service
 
