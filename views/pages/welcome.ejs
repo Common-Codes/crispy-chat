@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login | Crispy - Open Source Chat">
+    <meta name="keywords" content="online, chat, app, open-source. crispy">
+    <meta property="og:site_name" content="App | Crispy">
+    <link rel="icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png" type="image/png">
+    <meta property="og:title" content="App | Crispy">
+    <meta property="og:image" content="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <meta property="og:description" content="Login | Crispy - Open Source Chat">
+    <link rel="icon" type="image/x-icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <title>Crispy | App</title>
+    <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
+    <%- include('../partials/style') %>
+</head>
+<body>
+    <%- include('../partials/header', { username: username }) %>
+    <div id="cookcons" style="display: none; width: 99%; height: 108%; align-items: center; flex-direction: column; justify-content: center; background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.7); color: black; position: absolute; top: 0px; left: 0px;">
+        <div style="text-align: center; padding: 48px 26px 24px;  background-color: white; overflow: visible; box-sizing: border-box; display: block;">
+            <h2>Cookie Consent</h2>
+            <p>To use this site, you must first accept the usage of Cookies.</p>
+            <p>The only Cookies used on this site are essential to maintain functionality (authorisation cookies).</p>
+            <p>This site, cannot, does not and will not ever track you for any reason.</p>
+            <p>To opt-out of Cookies on this site, discontinue use of this website.</p>
+            <button style="border: none; background-color: blue; color: white; text-transform: uppercase; font-weight: 600; cursor: pointer;" onclick="acceptCookie()">Accept Cookies</button>
+        </div>
+    </div>
+    <script>
+        const hasAcceptedCookies = localStorage.getItem('cookie');
+        if (!hasAcceptedCookies) {
+           document.getElementById("cookcons").style.display = 'block';
+        }
+        function acceptCookie() {
+            localStorage.setItem("cookie", 'true');
+            document.getElementById("cookcons").style.display = 'none';
+        }
+    </script>
+
+    <div id="app-mount">
+        <div style="height:100%; overflow-x:hidden;">
+          <div>
+            <div class="grid-bar">
+              <div class="row-31oovZ header-V8Sgnz">
+                <header class="wrapper-2bm6Le">
+                  <nav class="nav-3_Sybl">
+                    <div class="links-DGfZfm">
+                        <p>Support:</p>
+                        <a class="link-1naFFL link-2eyudH" href="https://discord.gg/vncq8kF5hj">Discord</a>
+                        <a class="link-1naFFL link-2eyudH" href="https://rvlt.gg/MXp9zC2M">Revolt</a>
+                        <a style="display: none;" href="https://api.crispychat.tech">API</a>
+                    </div>
+                    <hr>
+                  </nav>
+                </header>
+              </div>
+              <h1>Welcome to Crispy</h1>
+              <h3>Open Source Chat Powered by Firebase, EJS and some Internet Magic</h3>
+            </div>
+            <hr>
+                <div>
+                    <h2>Ever wanted to go back to the good old days when online chatting sucked? <i>Yeah that's what Crispy-Chat is.</i></h2>
+                    <p>We've got it all: Invite only guilds, a janky-ass CommonJS API, stupid verifications, badges, and of course, <b>NO ORIGINAL FEATURES</b>.</p>
+                    <p>So, what are you waiting for? Get started by <a href="/auth">creating an account</a></p>
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

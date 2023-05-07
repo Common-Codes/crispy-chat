@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth | Crispy</title>
+    <link rel="icon" type="image/png" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <meta name="description" content="Sign up or create an account on Crispy | it's Crispy Chicken">
+    <meta property="og:site_name" content="Crispy, Open Source jankyCord">
+    <meta property="og:title" content="Login or Sign Up | Crispy">
+    <meta property="og:image" content="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <meta property="og:description" content="Sign up or create an account on Crispy | it's Crispy Chicken">
+    <%- include('../partials/style') %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <form id="login-form">
+        <h2>Login</h2>
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password" autocomplete="off">
+        <button type="submit">Login</button>
+      </form>
+      <form id="signup-form">
+        <h2>Signup</h2>
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="username" placeholder="Username" autocomplete="off">
+        <input type="password" name="password" placeholder="Password" autocomplete="off">
+        <button type="submit">Signup</button>
+      </form>
+      <h3 style="color: red;">By continuing, you agree to our <a style="text-decoration: underline;  cursor: pointer;" onclick="location.href = 'https://github.com/Common-Codes/crispy-chat/blob/main/legal/Terms%20of%20Service.md';">Terms of Service</a> and <a style="text-decoration: underline; cursor: pointer;" onclick="location.href = 'https://github.com/Common-Codes/crispy-chat/blob/main/legal/Privacy%20Policy.md';">Privacy Policy</a>.</h3>
+      <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = loginForm.email.value;
+            const password = loginForm.password.value;
+            fetch('/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            })
+                .then(response => {
+                if (response.ok) {
+                    // User is authenticated
+                    window.location.href = '/';
+                } else {
+                    // Authentication failed
+                    response.text().then(errorMessage => {
+                    console.error(errorMessage);
+                    });
+                }
+                })
+                .catch(error => {
+                console.error(error);
+                });
+        });
+
+        signupForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = signupForm.email.value;
+            const password = signupForm.password.value;
+            const username = signupForm.username.value
+
+            fetch('/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, username })
+            })
+                .then(response => {
+                if (response.ok) {
+                    // User is authenticated
+                    window.location.href = '/';
+                } else {
+                    // Authentication failed
+                    response.text().then(errorMessage => {
+                    console.error(errorMessage);
+                    });
+                }
+                })
+                .catch(error => {
+                console.error(error);
+                });
+        });
+
+      </script>
+</body>
+</html>
