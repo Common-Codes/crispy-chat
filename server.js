@@ -55,7 +55,7 @@ function checkAuth(req, res, next) {
       const userRef = store.collection('users').doc(currentUser.uid);
       userRef.get().then(doc => {
         if (doc.exists) {
-          req.username = doc.data().username;
+          req.username = doc.data().name;
         }
         next();
       });
@@ -190,12 +190,15 @@ app.get('/app/:id', checkAuth, function (req, res) {
   const username = req.username;
   if(req.params.id === 'mobile.js') return; // for some reason the req.params.id keeps returning this 'mobile.js' value, so we're just gonna skip it.
   var toFind = req.params.id;
-  if (username != null) {
+  if (!username) {
+    res.redirect('/');
+  } else {
     const docRef = store.collection('guilds').doc(toFind);
     docRef.get().then((doc) => {
       if(doc.exists){
-        res.render('pages/index', {
+        res.render('pages/app', {
           username: username,
+          title: doc.data().title,
         });
       } else {
         res.render('pages/index', {
@@ -203,7 +206,5 @@ app.get('/app/:id', checkAuth, function (req, res) {
         });
       }
     });
-  } else {
-  res.redirect('/');
   }
 });
