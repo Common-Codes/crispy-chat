@@ -12,11 +12,34 @@
     <meta property="og:image" content="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
     <meta property="og:description" content="Login | Crispy - Open Source Chat">
     <link rel="icon" type="image/x-icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
-    <title>Crispy | App</title>
+    <% if (title) { %>
+        <title><%= title %> | Crispy</title>
+      <% } else { %>
+        <title>App | Crispy</title>
+      <% } %>
+    
     <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
     <%- include('../partials/style') %>
 </head>
 <body>
+    <div>
+        <nav>
+            <ul>
+                <div style="overflow: hidden scroll;">
+                    <div id="logoContainer">
+                        <div>
+                            <div>
+                                <div>
+                                    <img src="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png" style="width: 48px; height: 48px; border-radius: 14px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="servers"></div>
+                </div>
+            </ul>
+        </nav>
+    </div>
     <h3>This section of the site is still undergoing some major development, please be patient while we get Crispy up and running!</h3>
 </body>
 </html>
