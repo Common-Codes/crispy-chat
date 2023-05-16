@@ -185,7 +185,24 @@ app.get('/onboarding', checkAuth, function (req, res) {
   }
 }); */
 
-// load app
+// load app landing
+app.get('/app', checkAuth, function (req, res) {
+  const username = req.username;
+  if (!username) {
+    res.redirect('/');
+  } else {
+    var guildRef = store.collection('users').doc(firebase.auth().currentUser.uid).collection('joined');
+    guildRef.get().then(snapshot => {
+      const guilds = snapshot.docs.map(doc => doc.data());
+      res.render('pages/home', {
+        username: username,
+        guildData: guilds,
+      });
+    })
+  }
+})
+
+// load app guilds
 app.get('/app/:id', checkAuth, function (req, res) {
   const username = req.username;
   if(req.params.id === 'mobile.js') return; // for some reason the req.params.id keeps returning this 'mobile.js' value, so we're just gonna skip it.
@@ -193,18 +210,24 @@ app.get('/app/:id', checkAuth, function (req, res) {
   if (!username) {
     res.redirect('/');
   } else {
-    const docRef = store.collection('guilds').doc(toFind);
-    docRef.get().then((doc) => {
-      if(doc.exists){
-        res.render('pages/app', {
-          username: username,
-          title: doc.data().title,
-        });
-      } else {
-        res.render('pages/index', {
-          username: username,
-        });
-      }
-    });
+    var guildRef = store.collection('users').doc(firebase.auth().currentUser.uid).collection('joined');
+    guildRef.get().then(snapshot => {
+      const guilds = snapshot.docs.map(doc => doc.data());
+      const docRef = store.collection('guilds').doc(toFind);
+      docRef.get().then((doc) => {
+        if(doc.exists){
+          res.render('pages/app', {
+            username: username,
+            title: doc.data().title,
+            guildData: guilds,
+          });
+        } else {
+          res.render('pages/home', {
+            username: username,
+            guildData: guilds,
+          });
+        }
+      });
+    })
   }
 });
