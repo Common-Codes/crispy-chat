@@ -34,9 +34,9 @@ ol, ul {
     background-color: rgb(32, 32, 32);
     text-rendering: optimizeLegibility;
     position: absolute;
+    overflow: hidden;
     left: 0;
     top: 0;
-    overflow: hidden;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -47,6 +47,7 @@ ol, ul {
 
 .appPanel {
     -webkit-box-flex: 1;
+    flex: 1 1 auto;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -72,7 +73,7 @@ ol, ul {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(32, 32, 32);
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -81,7 +82,7 @@ ol, ul {
 
 .layer1 {
     position: relative;
-    /*overflow: hidden;*/
+    overflow: hidden;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -97,7 +98,7 @@ ol, ul {
     position: absolute;
     top: 0;
     right: 0;
-    /*bottom: 0;*/
+    bottom: 0;
     left: 0;
     display: flex;
     overflow: hidden;
@@ -141,12 +142,23 @@ ol, ul {
     scrollbar-width: none;
 }
 
+.logoContainer {
+    position: relative;
+}
+
 .guildItem {
     position: relative;
     margin: 0 0 8px;
     display: flex;
     -webkit-box-pack: center;
     width: 72px;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    position: relative;
+    width: 48px;
+    height: 48px;
 }
 
 .guildImageContainer {
@@ -165,5 +177,46 @@ ol, ul {
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+}
+
+.basecont2 {
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+.basecont {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.content {
+    z-index: 1;
+    grid-area: 1 / 1;
+
+}
+
+.homeScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+}
+
+.shortcuts {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 11px;
+    max-width: 650px;
+    margin-bottom: 30px;
 }
 </style>
