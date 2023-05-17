@@ -34,19 +34,19 @@
                                         <ul class="unorderedList1">
                                             <div class="scroller" style="overflow: hidden scroll;">
                                                 <div id="logoContainer">
-                                                    <div onclick="location.href='/app/'" style="cursor: pointer;">
+                                                    <div class="guildItem" onclick="location.href='/app/'" title="Home Screen" style="cursor: pointer;">
                                                         <div>
-                                                            <div>
+                                                            <div class="wrapper">
                                                                 <img src="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png" style="width: 48px; height: 48px; border-radius: 14px;">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="scroller servers" style="overflow: visible scroll; padding-right: 0px; width: 100%; position: relative;">
+                                                <div id="servers" style="overflow: visible scroll; padding-right: 0px; width: 100%; position: relative;">
                                                     <% for (const guild of guildData) { %>
                                                         <div class="guildItem" onclick="location.href='/app/<%= guild.uid %>'" title="<%= guild.title %>">
                                                             <div>
-                                                                <div>
+                                                                <div class="wrapper">
                                                                     <div class="guildImageContainer">
                                                                         <div class="guildImage">
                                                                             <img src="<%= guild.img %>" alt="<%= guild.title %> icon" style="width: 48px; height: 48px; border-radius: 14px;">
@@ -60,8 +60,12 @@
                                             </div>
                                         </ul>
                                     </nav>
+                                    <div class="basecont">
+                                        <div class="header">
+                                            <h3 class="eligible"><%= title %></h3>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h3 class="eligible">This section of the site is still undergoing some major development, please be patient while we get Crispy up and running!</h3>
                             </div>
                         </div>
                     </div>
