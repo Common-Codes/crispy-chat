@@ -32,12 +32,12 @@ app.set('view engine', 'ejs');
 
 // listen to app
 app.listen(port, function(){
-    console.log('listening to some peeps;' + port); //a joke, ok? it's logged to let the devs know it's online.
+    console.log('listening to some peeps:' + port); //a joke, ok? it's logged to let the devs know it's online.
 })
 
 // firebase kickstarter
 const firebaseConfig = {
-    //reads, writes and OAuth Scopes are restricted to the URL of https://common-codes.github.io/ and only users that are signed-in can read and write data to firebase.auth().currentUser
+    //reads, writes and OAuth Scopes are unrestricted, yet only users that are signed-in can read and write data to/from firebase.auth().currentUser
     apiKey: "AIzaSyAMo9JcJdFEsXlKh3bHc5H-hX8fq41vIaU",
     authDomain: "crispy-chat.firebaseapp.com",
     databaseURL: "https://crispy-chat-default-rtdb.firebaseio.com",
@@ -189,7 +189,7 @@ app.get('/onboarding', checkAuth, function (req, res) {
 app.get('/app', checkAuth, function (req, res) {
   const username = req.username;
   if (!username) {
-    res.redirect('/');
+    res.redirect('/auth');
   } else {
     var guildRef = store.collection('users').doc(firebase.auth().currentUser.uid).collection('joined');
     guildRef.get().then(snapshot => {
@@ -208,7 +208,7 @@ app.get('/app/:id', checkAuth, function (req, res) {
   if(req.params.id === 'mobile.js') return; // for some reason the req.params.id keeps returning this 'mobile.js' value, so we're just gonna skip it.
   var toFind = req.params.id;
   if (!username) {
-    res.redirect('/');
+    res.redirect('/auth');
   } else {
     var guildRef = store.collection('users').doc(firebase.auth().currentUser.uid).collection('joined');
     guildRef.get().then(snapshot => {
@@ -231,3 +231,49 @@ app.get('/app/:id', checkAuth, function (req, res) {
     })
   }
 });
+
+// load invite error
+app.get('/invite', checkAuth, function (req, res){
+  const username = req.username;
+  if(!username){
+    res.render('pages/invite', {
+      username: null,
+      rebounce: null,
+      title: 'Invalid Invite | Crispy'
+    })
+  } else {
+    res.render('pages/invite', {
+      username: username,
+      rebounce: null,
+      title: 'Invalid Invite | Crispy',
+    })
+  }
+})
+
+// load invite error
+app.get('/invite/:id', checkAuth, function (req, res){
+  const username = req.username;
+  if(req.params.id === 'mobile.js') return;
+
+  var inviteDoc = store.collection('invites').doc(req.params.id);
+
+  if(!username){
+    res.redirect('/auth')
+  } else {
+    inviteDoc.get().then(snapshot => {
+      if(snapshot.exists){
+        res.render('pages/invite', {
+          username: username,
+          rebounce: snapshot.data().expire,
+          title: `${snapshot.data().title}`,
+        })
+      } else {
+        res.render('pages/invite', {
+          username: username,
+          rebounce: null,
+          title: 'Invalid Invite | Crispy',
+        })
+      }
+    })
+  }
+})
