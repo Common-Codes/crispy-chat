@@ -6,13 +6,14 @@
 
 .eligible {
     color: white;
+    white-space: nowrap;
 }
 
 a {
     color: aqua;
 }
 
-div {
+div, form {
     outline: 0;
     padding: 0;
     border: 0;
@@ -196,10 +197,21 @@ ol, ul {
     flex-grow: 1;
 }
 
-.content {
+.contentBase {
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: 0;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+}
+
+.content2 {
     z-index: 1;
     grid-area: 1 / 1;
-
 }
 
 .homeScreen {
@@ -219,4 +231,210 @@ ol, ul {
     max-width: 650px;
     margin-bottom: 30px;
 }
+
+.chatContainer {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(32, 32, 32);
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+}
+
+.header{
+    background: rgba(21, 21, 21, 0.5);
+    position: relative;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.headerWrapper::after {
+    content: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+}
+
+.headerWrapper {
+    position: relative;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.titleWrapper {
+    margin: 0 8px 0 0;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    min-width: auto;
+    box-sizing: border-box;
+}
+
+.iconWrapper {
+    position: relative;
+    height: 24px;
+    width: auto;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    margin: 0 8px;
+}
+
+.backarrowtang {
+    fill: grey;
+    transition: background-color 0.8s;
+}
+
+.backarrowtang:hover {
+    fill: white;
+}
+
+.chatcont {
+    min-width: 0;
+    min-height: 0;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    justify-content: stretch;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    position: relative;
+}
+
+.chatContent {
+    position: relative;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+}
+
+.messagesWrapper {
+    display: flex;
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    z-index: 0;
+}
+
+.messageSend:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: .5rem;
+    width: 1.25rem;
+}
+
+.messageSend {
+    position: relative;
+    flex-shrink: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: -8px;
+}
+
+.guilTextArea {
+    margin-bottom: 24px;
+    background-color: rgb(40, 40, 40);
+    position: relative;
+    width: 100%;
+    text-indent: 0;
+    border-radius: 6px;
+}
+
+.scrollerText {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 264px;
+    border-radius: 6px;
+    background: rgb(40, 40, 40);
+    backface-visibility: hidden;
+    scrollbar-width: none;
+}
+
+.innerText {
+    padding-left: 16px;
+    display: flex;
+    position: relative;
+}
+
+.innerTextArea {
+    padding: 0;
+    background-color: transparent;
+    resize: none;
+    border: none;
+    appearance: none;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.37rem;
+    width: 100%;
+    min-height: 44px;
+}
+
+.placeholderText {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 10px;
+    position: absolute;
+    left: 10px;
+    right: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: gray;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* I'm running out of class names here... */
+.eaYLPr1XoMpjI {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 10px;
+    position: absolute;
+    left: 0;
+    right: 10px;
+    caret-color: white;
+    text-align: left;
+    word-break: break-word;
+    white-space: break-spaces !important;
+    font-size: 1rem;
+    line-height: 1.37rem;
+    user-select: text;
+    color: white;
+}
+
+.textAreaButtons {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 44px;
+    position: sticky;
+    top: 0;
+    margin-right: 4px;
+}
+
 </style>
