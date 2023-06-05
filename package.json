@@ -1,7 +1,7 @@
 {
-  "name": "fire",
-  "version": "1.0.0",
-  "description": "This beat is gon be Fire!",
+  "name": "crispy-chat",
+  "version": "3.0.0",
+  "description": "This json is!",
   "main": "server.js",
   "scripts": {
     "test": "node server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Common-Codes/fire.git"
+    "url": "git+https://github.com/Common-Codes/crispy-chat.git"
   },
   "author": "Common-Codes",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Common-Codes/fire/issues"
+    "url": "https://github.com/Common-Codes/crispy-chat/issues"
   },
-  "homepage": "https://github.com/Common-Codes/fire#readme",
+  "homepage": "https://github.com/Common-Codes/crispy-chat#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
