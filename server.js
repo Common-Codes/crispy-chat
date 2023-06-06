@@ -23,7 +23,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-//app.use(express.static('public'));
+// this should make API work?
+app.use('/api', require('./routes/api'));
+// app requirements for JSON and shid
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -254,26 +256,23 @@ app.get('/invite', checkAuth, function (req, res){
 app.get('/invite/:id', checkAuth, function (req, res){
   const username = req.username;
   if(req.params.id === 'mobile.js') return;
-
+  
   var inviteDoc = store.collection('invites').doc(req.params.id);
-
-  if(!username){
-    res.redirect('/auth')
-  } else {
-    inviteDoc.get().then(snapshot => {
-      if(snapshot.exists){
-        res.render('pages/invite', {
-          username: username,
-          rebounce: snapshot.data().expire,
-          title: `${snapshot.data().title}`,
-        })
-      } else {
-        res.render('pages/invite', {
-          username: username,
-          rebounce: null,
-          title: 'Invalid Invite | Crispy',
-        })
-      }
-    })
-  }
+  
+  if(!username) res.redirect('/auth');
+  inviteDoc.get().then(snapshot => {
+    if(snapshot.exists){
+      res.render('pages/invite', {
+        username: username,
+        rebounce: snapshot.data().expire,
+        title: `${snapshot.data().title}`,
+      })
+    } else {
+      res.render('pages/invite', {
+        username: username,
+        rebounce: null,
+        title: 'Invalid Invite | Crispy',
+      })
+    }
+  })
 })
