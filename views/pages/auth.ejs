@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth | Crispy</title>
+    <title>Log In or Sign Up | Crispy</title>
     <link rel="icon" type="image/png" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
-    <meta name="description" content="Sign up or create an account on Crispy | it's Crispy Chicken">
-    <meta property="og:site_name" content="Crispy, Open Source jankyCord">
+    <meta name="description" content="Sign in or create an account on Crispy | it's Crispy Chicken">
+    <meta property="og:site_name" content="Crispy-Chat">
     <meta property="og:title" content="Login or Sign Up | Crispy">
     <meta property="og:image" content="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
-    <meta property="og:description" content="Sign up or create an account on Crispy | it's Crispy Chicken">
+    <meta property="og:description" content="Sign in or create an account on Crispy | it's Crispy Chicken">
     <%- include('../partials/style') %>
 </head>
 <body>
@@ -28,7 +28,7 @@
         <input type="password" name="password" placeholder="Password" autocomplete="off">
         <button type="submit">Signup</button>
       </form>
-      <h3 style="color: red;">By continuing, you agree to our <a style="text-decoration: underline;  cursor: pointer;" onclick="location.href = 'https://github.com/Common-Codes/crispy-chat/blob/main/legal/Terms%20of%20Service.md';">Terms of Service</a> and <a style="text-decoration: underline; cursor: pointer;" onclick="location.href = 'https://github.com/Common-Codes/crispy-chat/blob/main/legal/Privacy%20Policy.md';">Privacy Policy</a>.</h3>
+      <h3 style="color: red;">By continuing, you <underline>agree</underline> to our <a style="text-decoration: underline;  cursor: pointer;" href="https://github.com/Common-Codes/crispy-chat/blob/main/legal/Terms%20of%20Service.md">Terms of Service</a> <underline><i>and</i></underline> <a style="text-decoration: underline; cursor: pointer;" href="https://github.com/Common-Codes/crispy-chat/blob/main/legal/Privacy%20Policy.md">Privacy Policy</a>.</h3>
       <script>
         const loginForm = document.getElementById('login-form');
         const signupForm = document.getElementById('signup-form');
@@ -45,7 +45,7 @@
                 .then(response => {
                 if (response.ok) {
                     // User is authenticated
-                    window.location.href = '/';
+                    window.location.href = '/app';
                 } else {
                     // Authentication failed
                     response.text().then(errorMessage => {
@@ -72,7 +72,7 @@
                 .then(response => {
                 if (response.ok) {
                     // User is authenticated
-                    window.location.href = '/';
+                    window.location.href = '/app';
                 } else {
                     // Authentication failed
                     response.text().then(errorMessage => {

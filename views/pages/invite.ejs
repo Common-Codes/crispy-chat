@@ -41,7 +41,10 @@
         <% if (rebounce) { %>
           <h1><%= title %></h1>
           <h3>This is an invite to join <%= title %></h3>
-          <b>To accept this invite, please wait for a future update. The <a style="color: crimson;" href="/app">API</a> is currently offline.</a></b>
+          <b>To accept this invite, please wait for a future update. The <a style="color: aqua;" href="/api">API</a> is currently <underline>offline</underline>.</a></b>
+          <div style="padding-top: 1rem;">
+            <button style="text-transform: uppercase; font-size: 1rem; padding: .5rem .5rem .7rem .7rem; border-radius: 10px; align-items: center; cursor: pointer; border: none;" disabled>accept invite</button>
+          </div>
           <p style="font-size: smaller; color: rgba(255, 255, 255, 0.4);">Rebounce ID: <%= rebounce %></p>
         <% } else { %>
           <h1><%= title %></h1>
