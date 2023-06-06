@@ -14,7 +14,6 @@
     <%- include('../partials/style') %>
 </head>
 <body>
-    <%- include('../partials/header', { username: username }) %>
     <div id="cookcons" style="display: none; width: 99%; height: 108%; align-items: center; flex-direction: column; justify-content: center; background-size: cover; background-position: center; background-color: rgba(0, 0, 0, 0.7); color: black; position: absolute; top: 0px; left: 0px;">
         <div style="text-align: center; padding: 48px 26px 24px;  background-color: white; overflow: visible; box-sizing: border-box; display: block;">
             <h2>Cookie Consent</h2>
@@ -43,7 +42,11 @@
           <h3>This is an invite to join <%= title %></h3>
           <b>To accept this invite, please wait for a future update. The <a style="color: aqua;" href="/api">API</a> is currently <underline>offline</underline>.</a></b>
           <div style="padding-top: 1rem;">
-            <button style="text-transform: uppercase; font-size: 1rem; padding: .5rem .5rem .7rem .7rem; border-radius: 10px; align-items: center; cursor: pointer; border: none;" disabled>accept invite</button>
+            <% if (username) { %>
+              <button style="text-transform: uppercase; font-size: 1rem; padding: .5rem .5rem .7rem .7rem; border-radius: 10px; align-items: center; cursor: pointer; border: none;">accept invite</button>
+            <% } else { %>
+              <button style="text-transform: uppercase; font-size: 1rem; padding: .5rem .5rem .7rem .7rem; border-radius: 10px; align-items: center; cursor: pointer; border: none;">log in to accept invite</button>
+            <% } %>
           </div>
           <p style="font-size: smaller; color: rgba(255, 255, 255, 0.4);">Rebounce ID: <%= rebounce %></p>
         <% } else { %>

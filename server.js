@@ -237,19 +237,11 @@ app.get('/app/:id', checkAuth, function (req, res) {
 // load invite error
 app.get('/invite', checkAuth, function (req, res){
   const username = req.username;
-  if(!username){
-    res.render('pages/invite', {
-      username: null,
-      rebounce: null,
-      title: 'Invalid Invite | Crispy'
-    })
-  } else {
     res.render('pages/invite', {
       username: username,
       rebounce: null,
       title: 'Invalid Invite | Crispy',
     })
-  }
 })
 
 // load invite error
@@ -258,8 +250,7 @@ app.get('/invite/:id', checkAuth, function (req, res){
   if(req.params.id === 'mobile.js') return;
   
   var inviteDoc = store.collection('invites').doc(req.params.id);
-  
-  if(!username) res.redirect('/auth');
+
   inviteDoc.get().then(snapshot => {
     if(snapshot.exists){
       res.render('pages/invite', {
