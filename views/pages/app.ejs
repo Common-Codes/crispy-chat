@@ -30,7 +30,7 @@
                         <div class="layer1">
                             <div class="layer2">
                                 <div class="container">
-                                    <nav class="guildNav">
+                                    <nav class="guildNav" style="display: flex;">
                                         <ul class="unorderedList1">
                                             <div class="scroller" style="overflow: hidden scroll;">
                                                 <div id="logoContainer">
@@ -75,7 +75,7 @@
                                             <div class="chatContainer">
                                                 <div class="header">
                                                     <div class="headerWrapper">
-                                                        <div class="iconWrapper">
+                                                        <div class="iconWrapper" onclick="toggleMenu()" title="Toggle Nav Bar Visibility">
                                                             <svg viewBox="0 0 24 24" height="24" width="24" aria-hidden="true" focusable="false" class="backarrowtang" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
                                                             </svg>
@@ -134,5 +134,18 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleMenu(){
+            const navTag = document.querySelector('.guildNav');
+            const arrow = document.querySelector(".backarrowtang");
+            if(navTag.style.display === 'flex'){
+                navTag.style.display = 'none';
+                arrow.innerHTML = '<path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>'
+            } else {
+                navTag.style.display = 'flex'
+                arrow.innerHTML = '<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>'
+            }
+        }
+    </script>
 </body>
 </html>

@@ -121,7 +121,7 @@ ol, ul {
     width: 72px;
     flex-shrink: 0;
     overflow: hidden;
-    display: flex;
+    /*display: flex;*/
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
@@ -221,7 +221,7 @@ ol, ul {
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 12px;
+    padding-top: 12px;
 }
 
 .shortcuts {
@@ -295,6 +295,7 @@ ol, ul {
 .backarrowtang {
     fill: grey;
     transition: background-color 0.8s;
+    cursor: pointer;
 }
 
 .backarrowtang:hover {
@@ -435,6 +436,32 @@ ol, ul {
     position: sticky;
     top: 0;
     margin-right: 4px;
+}
+
+.layer3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.thisSidebarClass {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 101;
+    display: flex;
+    background-color: transparent;
 }
 
 </style>
