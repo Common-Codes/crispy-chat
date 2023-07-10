@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login | Crispy - Open Source Chat">
+    <meta name="keywords" content="online, chat, app, open-source. crispy">
+    <meta property="og:site_name" content="App | Crispy">
+    <link rel="icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png" type="image/png">
+    <meta property="og:title" content="App | Crispy">
+    <meta property="og:image" content="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <meta property="og:description" content="Login | Crispy - Open Source Chat">
+    <link rel="icon" type="image/x-icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
+    <title>Settings | Crispy</title>
+    <link rel="stylesheet" href="/css/crispychicken.css">
+    <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
+</head>
+<body>
+    <div class="appContainer">
+        <div class="appPanel">
+            <div class="notPanel">
+                <div class="application">
+                    <div class="app-primary">
+                        <div class="custom-background"></div>
+                        <div class="layer1">
+                            <div class="layer3">
+                                <div class="thisSidebarClass" style="position: absolute; opacity: 1;">
+                                    <div class="thisAccountInfo">
+                                        <div class="thisAccountWrapper">
+                                            <div class="thisNewScroll" style="overflow: hidden scroll; padding-right: 0px;" dir="ltr">
+                                                <div class="myAccountTab" role="tabpanel" tabindex="-1">
+                                                    <div>
+                                                        <div>
+                                                            <div style="display: flex;">
+                                                                <h2 class="eligible">Settings</h2>
+                                                            </div>
+                                                            <div style="display: flex;">
+                                                                <div class="accountDetailer">
+                                                                    <% if (banner) { %>
+                                                                        <img class="bannerWrapper" src="<%= banner %>">
+                                                                    <% } else { %>
+                                                                        <svg class="bannerWrapper"></svg>
+                                                                    <% } %>
+                                                                    <div class="userInfo">
+                                                                        <img class="avatarStack" aria-hidden="false" src="<%= avatar %>">
+                                                                        <div>
+                                                                            <div class="profileUsername">
+                                                                                <div class="displayProfileName">
+                                                                                    <% if (discriminator) { %>
+                                                                                        <span class="eligible" style="box-sizing: border-box; -webkit-box-flex: 0; display: block; flex: 0 1 auto; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; outline: 0;"><%= username %>#<%= discriminator %></span>
+                                                                                    <% } else { %>
+                                                                                        <span class="eligible" style="box-sizing: border-box; -webkit-box-flex: 0; display: block; flex: 0 1 auto; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; outline: 0;"><%= username %>#0000</span>
+                                                                                    <% } %>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="badgeList" role="group">
+                                                                                <!-- make an badges forEach loop thing -->
+                                                                                <% for (const badge of badges) { %>
+                                                                                    <a class="badgeContainer" href="https://common-codes.github.io/verbose" rel="noreferrer noopener" target="_blank" role="button" tabindex="0">
+                                                                                        <img aria-hidden="true" src="<%= badge.src %>" class="profileBadge21">
+                                                                                    </a>
+                                                                                  <% } %>
+                                                                                <!-- end badges loop thing -->
+                                                                            </div>
+                                                                        </div>
+                                                                        <button type="button" style="position: relative; display: flex; -webkit-box-pack: center; justify-content: center; -webkit-box-align: center; align-items: center; border: none; border-radius: 5px; padding: 12px 14px 12px 14px; background-color: rgb(40, 40, 40); cursor: pointer; box-sizing: border-box; width: auto; height: 32px; min-width: 60px; min-height: 32px;">
+                                                                            <div class="eligible" onclick="location.href='/auth';">Log Out</div>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="layer4">
+                                                                        <div class="userInfoList">
+                                                                            <div class="field-212121 fieldSpacerBottom-3xUCTB">
+                                                                                <div class="linearTexta">
+                                                                                    <div>
+                                                                                        <h3 class="eligible">Username</h3>
+                                                                                        <div>
+                                                                                            <span class="eligible"><%= username %></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <button type="button" style="padding: 12px 14px 12px 14px; margin: auto; border: none; border-radius: 5px; background-color: rgb(40, 40, 40); cursor: pointer;">
+                                                                                    <div class="eligible">Edit</div>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="field-212121">
+                                                                                <div class="linearTexta">
+                                                                                    <div class="usernameRow-1x50RR">
+                                                                                        <h3 class="eligible">Tag</h3>
+                                                                                        <div class="usernameInnerRow-1-STdK">
+                                                                                            <% if (discriminator) { %>
+                                                                                                <span class="eligible" style="box-sizing: border-box; -webkit-box-flex: 0; display: block; flex: 0 1 auto; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; outline: 0;"><%= username %>#<%= discriminator %></span>
+                                                                                            <% } else { %>
+                                                                                                <span class="eligible" style="box-sizing: border-box; -webkit-box-flex: 0; display: block; flex: 0 1 auto; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; outline: 0;"><%= username %>#0000</span>
+                                                                                            <% } %>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <button type="button"  style="padding: 12px 14px 12px 14px; margin: auto; border: none; border-radius: 5px; background-color: rgb(40, 40, 40); cursor: pointer;">
+                                                                                    <div class="eligible">Edit</div>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="field-212121">
+                                                                                <div class="linearTexta">
+                                                                                    <div>
+                                                                                        <h3 class="eligible">Email</h3>
+                                                                                        <div>
+                                                                                            <span class="eligible thisEmailSlot">********
+                                                                                                <button type="button" style="border: none; background-color: transparent;" onclick="displayMail()">
+                                                                                                    <div class="eligible underlineHover">Toggle</div>
+                                                                                                </button>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <button type="button" style="padding: 12px 14px 12px 14px; margin: auto; border: none; border-radius: 5px; background-color: rgb(40, 40, 40); cursor: pointer;">
+                                                                                    <div class="eligible">Edit</div>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="field-212121">
+                                                                                <div class="linearTexta">
+                                                                                    <div>
+                                                                                        <h3 class="eligible">Phone Number</h3>
+                                                                                        <div>
+                                                                                            <span style="color: rgb(120 120 120);">You can't add a phone number yet.</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                    <button type="button"  style="padding: 12px 14px 12px 14px; margin: auto; border: none; border-radius: 5px; background-color: rgb(40, 40, 40);" disabled title="This feature is currently unavailable">
+                                                                                        <div class="eligible">Edit</div>
+                                                                                    </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="divider-3nqZNm marginTop40-Q4o1tS"></div>
+                                                        <div class="userSettingsSecurity-2kODPN marginTop40-Q4o1tS">
+                                                            <div class="sectionTitle-LdcnyP">
+                                                                <h2 class="h1-3iMExa title-lXcL8p defaultColor-3Olr-9 defaultMarginh1-1UYutH" id=":rff:">Password and Authentication</h2>
+                                                            </div>
+                                                            <div class="children-2C96Ex"><div>
+                                                                <button type="button" class="changePasswordButton-3j5UVD button-ejjZWC lookFilled-1H2Jvj colorBrand-2M3O3N sizeSmall-3R2P2p grow-2T4nbg">
+                                                                    <div class="contents-3NembX">Change Password</div>
+                                                                </button>
+                                                            </div>
+                                                            <div style="flex: 1 1 auto;" class="flex-2S1XBF flex-3BkGQD horizontal-112GEH horizontal-1Piu5- flex-3BkGQD directionRow-2Iu2A9 justifyStart-2Mwniq alignStretch-Uwowzr noWrap-hBpHBz">
+                                                                <div class="flexChild-3PzYmX" style="flex: 1 1 auto;">
+                                                                    <div>
+                                                                        <div class="sectionTitle-LdcnyP">
+                                                                            <h3 class="h5-2feg8J eyebrow-2wJAoF defaultMarginh5-3THN2O" id=":rfg:">Two-factor authentication</h3>
+                                                                        </div>
+                                                                        <div class="children-2C96Ex">
+                                                                            <div class="colorStandard-1Xxp1s size14-k_3Hy4 description-foE_WP formText-2UzJT0 marginBottom20-315RVT modeDefault-3Warim">Protect your account with an extra layer of security. Once configured, you'll be required
+to enter both your password and an authentication code from your mobile phone in order to sign in.</div>
+<div>
+    <button type="button" class="button-ejjZWC lookFilled-1H2Jvj colorBrand-2M3O3N sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">Enable Two-Factor Auth</div></button></div></div></div></div><div style="flex: 0 1 323px;" class="flex-2S1XBF flex-3BkGQD horizontal-112GEH horizontal-1Piu5- flex-3BkGQD directionRow-2Iu2A9 justifyStart-2Mwniq alignCenter-14kD11 noWrap-hBpHBz"><img src="/assets/67430d140a79af95585a19d304731dc5.svg" class="userSettingsSecurityImage-1ZkUEz" alt=""></div></div></div></div><div class="divider-3nqZNm marginTop40-Q4o1tS"></div><div class="marginTop40-Q4o1tS"><div class="sectionTitle-LdcnyP"><h2 class="h5-2feg8J eyebrow-2wJAoF defaultMarginh5-3THN2O" id=":rfi:">Account Removal</h2></div><div class="children-2C96Ex"><div class="colorStandard-1Xxp1s size14-k_3Hy4 description-foE_WP formText-2UzJT0 description-3KXNo8 modeDefault-3Warim">Disabling your account means you can recover it at any time after taking this action.</div><div class="buttonContainer-cmXa0P"><button type="button" class="disableButton-3BR0Vj button-ejjZWC lookFilled-1H2Jvj colorRed-2VFhM4 sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">Disable Account</div></button><button type="button" class="button-ejjZWC lookOutlined-3RTC7c colorRed-2VFhM4 sizeSmall-3R2P2p grow-2T4nbg"><div class="contents-3NembX">Delete Account</div></button></div></div></div></div></div>
+    <div class="toolsContainer-25FL6V closeIconOnly-2lAimv">
+        <button onclick="location.href='/app';" style="background-color: rgba(21, 21, 21, 0.3); text-transform: uppercase; border: none; padding: 12px; cursor: pointer;" class="eligible">x</button>
+    </div>
+    <div aria-hidden="true" style="position: absolute; pointer-events: none; min-height: 0px; min-width: 1px; flex: 0 0 auto; height: 0px;"></div></div></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const mailLocation = document.querySelector('.thisEmailSlot');
+        function displayMail(){
+            mailLocation.innerHTML = `<%= email %><button type="button" style="border: none; background-color: transparent;" onclick="hideMail()"><div class="eligible underlineHover">Toggle</div></button>`;
+        }
+        function hideMail(){
+            mailLocation.innerHTML = `********<button type="button" style="border: none; background-color: transparent;" onclick="displayMail()"><div class="eligible underlineHover">Toggle</div></button>`;
+        }
+    </script>
+</body>
+</html>

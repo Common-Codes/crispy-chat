@@ -1,11 +1,10 @@
-<style>
 /*
     Let it be known: This theme by TallerThanShort is unfinished! Expect many-a-patches here! (this will get updated pretty much only when it's needed)
     "crisychicken.css" is the official jankyCord theme, used across many jankyCord implementations, such as Crispy-Chat!
 */
 
 .eligible {
-    color: white;
+    color: rgb(250, 250, 250);
     white-space: nowrap;
 }
 
@@ -29,6 +28,15 @@ ol, ul {
     padding: 0;
     border: 0;
     
+}
+
+.underlineHover {
+    cursor: pointer; 
+    text-decoration: none;
+}
+
+.underlineHover:hover {
+    text-decoration: underline;
 }
 
 .appContainer {
@@ -464,4 +472,180 @@ ol, ul {
     background-color: transparent;
 }
 
-</style>
+.thisAccountInfo {
+    position: absolute;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 1 800px;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    background: rgb(32, 32, 32);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.thisAccountWrapper {
+    -webkit-box-flex: 1;
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.thisNewScroll {
+    overflow: hidden scroll;
+    padding-right: 0px;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    height: 100%;
+    position: static;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    background-color: rgb(40, 40, 40);
+}
+
+.myAccountTab {
+    position: relative;
+    padding: 60px 40px 80px;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 460px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.accountDetailer {
+    background-color: rgb(21, 21, 21);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.bannerWrapper {
+    min-width: 660px;
+    min-height: 132px;
+    box-sizing: border-box;
+    contain: paint;
+    background-color: rgb(255, 255, 255);
+    height: 132px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
+.userInfo {
+    height: 72px;
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 16px 16px 0 120px;
+    box-sizing: border-box;
+}
+
+.avatarStack {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 110px;
+    left: 21px;
+    box-sizing: content-box;
+    border-radius: 50%;
+}
+
+.profileUsername {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.displayProfileName {
+    margin-bottom: 6px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    overflow: hidden;
+    cursor: default;
+}
+
+.badgeList {
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding-left: 0 !important;
+    box-sizing: border-box;
+    padding: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    gap: 2px;
+    min-height: 21px;
+}
+
+.badgeContainer {
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.profileBadge21::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profileBadge21 {
+    width: 21px;
+    height: 21px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.layer4 {
+    border-radius: 8px;
+    background-color: rgb(32, 32, 32);
+    padding: 16px;
+    margin: 12px 8px 4px 8px;
+}
+
+.userInfoList {
+    border-radius: 8px;
+    background-color: rgb(32, 32, 32);
+    box-sizing: border-box;
+}
+
+.field-212121 {
+    margin-bottom: 24px;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.linearTexta {
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow: hidden;
+    margin-right: 16px;
+    box-sizing: border-box;
+}

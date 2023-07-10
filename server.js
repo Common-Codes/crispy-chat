@@ -23,6 +23,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+// this should make CSS work?
+app.use(express.static(__dirname + '/public'));
 // this should make API work?
 app.use('/api', require('./routes/api'));
 // app requirements for JSON and shid
@@ -58,6 +60,9 @@ function checkAuth(req, res, next) {
       userRef.get().then(doc => {
         if (doc.exists) {
           req.username = doc.data().name;
+          req.avatar = doc.data().img;
+          req.discriminator = doc.data().tag;
+          req.banner = doc.data().banner;
         }
         next();
       });
@@ -71,8 +76,21 @@ app.get('/auth', function (req, res) {
     res.render('pages/auth', {username: null});
 });
 
-// create new users
+// begin new user thing
+
+// the random thing for tag's
+
+// TO-DO: TEST HOW GOOD THIS IS!!1!
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
+
+// adding users to the DB
 app.post('/auth/signup', (req, res) => {
+    const tag = getRandomInt(1000, 9999);
     const email = req.body.email;
     const password = req.body.password;
   
@@ -83,7 +101,9 @@ app.post('/auth/signup', (req, res) => {
         const uid = user.uid;
         // create the users doc
         store.collection('users').doc(uid).set({
-            username: req.body.username
+            username: req.body.username,
+            tag: tag,
+            img: 'https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png'
         }).then(() => {
             // User data saved successfully
             res.status(200).send('OK');
@@ -130,8 +150,9 @@ app.get('/', checkAuth, function (req, res) {
 
 //welcome page!
 app.get('/onboarding', checkAuth, function (req, res) {
+  const username = req.username;
     res.render('pages/welcome', {
-      username: null
+      username: username
     });
 });
 
@@ -191,11 +212,13 @@ app.get('/onboarding', checkAuth, function (req, res) {
 app.get('/app', checkAuth, function (req, res) {
   const username = req.username;
   if (!username) {
+    console.log("no username?")
     res.redirect('/auth');
   } else {
     var guildRef = store.collection('users').doc(firebase.auth().currentUser.uid).collection('joined');
     guildRef.get().then(snapshot => {
       const guilds = snapshot.docs.map(doc => doc.data());
+      console.log(guilds)
       res.render('pages/home', {
         username: username,
         guildData: guilds,
@@ -233,6 +256,36 @@ app.get('/app/:id', checkAuth, function (req, res) {
     })
   }
 });
+
+// load settins page
+app.get('/settings', checkAuth, function (req, res){
+  const username = req.username;
+  const discriminator = req.discriminator;
+  const avatar = req.avatar;
+  const banner = req.banner;
+  let mail = ""
+
+  if(!firebase.auth().currentUser) {
+    mail = null;
+  } else {
+    mail = firebase.auth().currentUser.email;
+  }
+  if(!username){
+    res.redirect('/auth');
+  } else {
+    store.collection("users").doc(firebase.auth().currentUser.uid).collection("badges").get().then(snapshot => {
+      const badges = snapshot.docs.map(doc => doc.data());
+      res.render('pages/settings', {
+        username: username,
+        discriminator: discriminator,
+        avatar: avatar,
+        banner: banner,
+        email: mail,
+        badges: badges
+      })
+    })
+  }
+})
 
 // load invite error
 app.get('/invite', checkAuth, function (req, res){

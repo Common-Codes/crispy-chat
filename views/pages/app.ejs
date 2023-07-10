@@ -14,10 +14,10 @@
     <link rel="icon" type="image/x-icon" href="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png">
     <% if (title) { %>
         <title><%= title %> | Crispy</title>
-      <% } else { %>
+    <% } else { %>
         <title>App | Crispy</title>
-      <% } %>
-    <%- include('../partials/crispychicken') %>
+    <% } %>
+    <link rel="stylesheet" href="/css/crispychicken.css">
     <meta name="theme-color" content="rgba(33, 33, 33, 0.98)">
 </head>
 <body>
@@ -43,13 +43,27 @@
                                                     </div>
                                                 </div>
                                                 <div id="servers" style="overflow: visible scroll; padding-right: 0px; width: 100%; position: relative;">
-                                                    <% for (const guild of guildData) { %>
-                                                        <div class="guildItem" onclick="location.href='/app/<%= guild.uid %>'" title="<%= guild.title %>">
+                                                    <% if (guildData) { %>
+                                                        <% for (const guild of guildData) { %>
+                                                            <div class="guildItem" onclick="location.href='/app/<%= guild.uid %>'" title="<%= guild.title %>">
+                                                                <div>
+                                                                    <div class="wrapper">
+                                                                        <div class="guildImageContainer">
+                                                                            <div class="guildImage">
+                                                                                <img src="<%= guild.img %>" alt="<%= guild.title %> icon" style="width: 48px; height: 48px; border-radius: 14px;">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <% } %>
+                                                    <%} else {%>
+                                                        <div class="guildItem" onclick="location.href='/app'" title="Join a guild to get Started!">
                                                             <div>
                                                                 <div class="wrapper">
                                                                     <div class="guildImageContainer">
                                                                         <div class="guildImage">
-                                                                            <img src="<%= guild.img %>" alt="<%= guild.title %> icon" style="width: 48px; height: 48px; border-radius: 14px;">
+                                                                            <img src="https://tallerthanshort.github.io/ut3.ggpht/icons/crispy.png" alt="<%= guild.title %> icon" style="width: 48px; height: 48px; border-radius: 14px;">
                                                                         </div>
                                                                     </div>
                                                                 </div>
